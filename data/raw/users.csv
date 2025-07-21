@@ -1,0 +1,101 @@
+user_id,region,registration_date,is_active,last_login_date
+1,Novosibirsk,2024-06-14,True,2024-06-26
+2,Moscow,2024-06-27,True,2024-06-27
+3,Saint Petersburg,2024-06-05,True,2024-06-03
+4,Moscow,2024-06-10,False,2024-06-20
+5,Moscow,2024-06-14,True,2024-06-29
+6,Kazan,2024-06-17,False,2024-06-22
+7,Moscow,2024-06-05,False,2024-06-19
+8,Moscow,2024-06-13,True,2024-06-27
+9,Yekaterinburg,2024-06-19,True,2024-06-28
+10,Saint Petersburg,2024-06-10,True,2024-06-28
+11,Moscow,2024-06-04,True,2024-06-22
+12,Samara,2024-06-23,False,2024-06-24
+13,Moscow,2024-06-13,True,2024-06-22
+14,Novosibirsk,2024-06-12,True,2024-06-27
+15,Saint Petersburg,2024-06-28,True,2024-06-29
+16,Yekaterinburg,2024-06-02,False,2024-06-11
+17,Saint Petersburg,2024-06-28,False,2024-06-11
+18,Moscow,2024-06-23,True,2024-06-29
+19,Moscow,2024-06-29,False,2024-06-21
+20,Omsk,2024-06-11,True,2024-06-26
+21,Saint Petersburg,2024-06-06,True,2024-06-07
+22,Novosibirsk,2024-06-19,False,2024-06-23
+23,Saint Petersburg,2024-06-13,True,2024-06-28
+24,Yekaterinburg,2024-06-27,False,2024-06-28
+25,Kazan,2024-06-15,False,2024-06-19
+26,Moscow,2024-06-13,True,2024-06-25
+27,Saint Petersburg,2024-06-15,True,2024-06-27
+28,Moscow,2024-06-26,True,2024-06-26
+29,Saint Petersburg,2024-06-06,False,2024-06-25
+30,Samara,2024-06-03,True,2024-06-19
+31,Samara,2024-06-24,True,2024-06-07
+32,Other,2024-06-07,False,2024-06-27
+33,Other,2024-06-26,False,2024-06-18
+34,Other,2024-06-16,False,2024-06-28
+35,Other,2024-06-26,False,2024-06-27
+36,Moscow,2024-06-17,True,2024-06-14
+37,Saint Petersburg,2024-06-01,True,2024-06-20
+38,Yekaterinburg,2024-06-04,True,2024-06-11
+39,Samara,2024-06-12,False,2024-06-21
+40,Novosibirsk,2024-06-07,False,2024-06-29
+41,Moscow,2024-06-10,True,2024-06-27
+42,Moscow,2024-06-21,False,2024-06-27
+43,Saint Petersburg,2024-06-05,True,2024-06-25
+44,Saint Petersburg,2024-06-13,True,2024-06-19
+45,Moscow,2024-06-21,True,2024-06-24
+46,Moscow,2024-06-22,True,2024-06-16
+47,Moscow,2024-06-05,True,2024-06-28
+48,Moscow,2024-06-11,False,2024-06-28
+49,Rostov-on-Don,2024-06-01,False,2024-06-21
+50,Moscow,2024-06-21,False,2024-06-26
+51,Moscow,2024-06-03,True,2024-06-19
+52,Kazan,2024-06-29,False,2024-06-05
+53,Saint Petersburg,2024-06-03,True,2024-06-27
+54,Samara,2024-06-04,True,2024-06-24
+55,Saint Petersburg,2024-06-29,True,2024-06-29
+56,Novosibirsk,2024-06-13,True,2024-06-27
+57,Novosibirsk,2024-06-13,False,2024-06-20
+58,Moscow,2024-06-16,True,2024-06-23
+59,Moscow,2024-06-04,True,2024-06-29
+60,Saint Petersburg,2024-06-04,True,2024-06-19
+61,Saint Petersburg,2024-06-27,False,2024-06-23
+62,Novosibirsk,2024-06-27,False,2024-06-27
+63,Other,2024-06-13,True,2024-06-11
+64,Omsk,2024-06-14,False,2024-06-28
+65,Novosibirsk,2024-06-13,False,2024-06-21
+66,Moscow,2024-06-21,False,2024-06-06
+67,Moscow,2024-06-13,True,2024-06-20
+68,Kazan,2024-06-28,True,2024-06-29
+69,Moscow,2024-06-02,False,2024-06-26
+70,Saint Petersburg,2024-06-07,True,2024-06-22
+71,Moscow,2024-06-11,True,2024-06-14
+72,Novosibirsk,2024-06-20,True,2024-06-27
+73,Other,2024-06-09,False,2024-06-18
+74,Moscow,2024-06-13,False,2024-06-24
+75,Moscow,2024-06-02,False,2024-06-19
+76,Moscow,2024-06-15,True,2024-06-26
+77,Moscow,2024-06-16,False,2024-06-23
+78,Samara,2024-06-25,False,2024-06-20
+79,Yekaterinburg,2024-06-02,True,2024-06-29
+80,Samara,2024-06-29,False,2024-06-19
+81,Moscow,2024-06-22,False,2024-06-29
+82,Yekaterinburg,2024-06-25,True,2024-06-23
+83,Saint Petersburg,2024-06-13,True,2024-06-29
+84,Yekaterinburg,2024-06-27,True,2024-06-18
+85,Saint Petersburg,2024-06-17,False,2024-06-26
+86,Novosibirsk,2024-06-25,False,2024-06-17
+87,Novosibirsk,2024-06-15,True,2024-06-23
+88,Moscow,2024-06-28,False,2024-06-22
+89,Saint Petersburg,2024-06-14,True,2024-06-11
+90,Saint Petersburg,2024-06-16,False,2024-06-29
+91,Saint Petersburg,2024-06-23,True,2024-06-28
+92,Novosibirsk,2024-06-17,True,2024-06-23
+93,Nizhny Novgorod,2024-06-11,True,2024-06-22
+94,Moscow,2024-06-24,True,2024-06-11
+95,Saint Petersburg,2024-06-19,False,2024-06-29
+96,Saint Petersburg,2024-06-01,True,2024-06-29
+97,Kazan,2024-06-26,False,2024-06-17
+98,Moscow,2024-06-23,True,2024-06-17
+99,Nizhny Novgorod,2024-06-29,False,2024-06-29
+100,Other,2024-06-25,False,2024-06-27
