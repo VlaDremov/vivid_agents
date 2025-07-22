@@ -32,15 +32,15 @@ The AI agent:
 
 ## 📱 Demo
 
-![Bot Demo](screenshots/1.png)
-![Bot Demo](screenshots/2.png)
-![Bot Demo](screenshots/3.png)
-![Bot Demo](screenshots/4.png)
-![Bot Demo](screenshots/5.png)
+![Bot Demo1](screenshots/1.png)
+![Bot Demo2](screenshots/2.png)
+![Bot Demo3](screenshots/3.png)
+![Bot Demo4](screenshots/4.png)
+![Bot Demo5](screenshots/5.png)
 
 ## Demo for Model-to-Model eval (when requested dates are not equal to 2024-06-01-2025-06-30)
-![Bot Demo](screenshots/extra_1.png)
-![Bot Demo](screenshots/extra_2.png)
+![Bot Demo6](screenshots/extra_1.png)
+![Bot Demo7](screenshots/extra_2.png)
 
 ## 🛠 Installation
 
