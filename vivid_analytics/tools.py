@@ -1,7 +1,7 @@
 import pandas as pd
 from langchain_core.tools import tool
-from analytics import active_users_by_region
-from logger_config import get_tools_logger, log_info, log_success, log_error
+from .analytics import active_users_by_region
+from .logger_config import get_tools_logger, log_info, log_success, log_error
 
 # * Initialize logger
 logger = get_tools_logger()
@@ -34,10 +34,12 @@ def get_active_users_by_region_tool(
         log_info(logger, f"Loaded {len(df_users)} user records")
 
         # * Calculate active users by region
-        result = active_users_by_region(df_users, start_date, end_date)
+        total_active_users = active_users_by_region(df_users, start_date, end_date)
 
-        log_success(logger, f"Successfully calculated active users by region: {result}")
-        return result
+        log_success(
+            logger, f"Successfully calculated total active users: {total_active_users}"
+        )
+        return {"total_active_users": total_active_users}
 
     except Exception as e:
         log_error(logger, e, "Error in get_active_users_by_region_tool")

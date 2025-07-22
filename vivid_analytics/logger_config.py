@@ -8,7 +8,7 @@ from typing import Optional
 def setup_logger(
     name: str = __name__,
     level: int = logging.INFO,
-    log_to_file: bool = True,
+    log_to_file: bool = False,
     log_to_console: bool = True,
     log_dir: str = "logs",
 ) -> logging.Logger:
@@ -34,21 +34,17 @@ def setup_logger(
 
     logger.setLevel(level)
 
-    # * Create formatters
-    detailed_formatter = logging.Formatter(
-        fmt="%(asctime)s | %(name)s | %(levelname)-8s | %(funcName)s:%(lineno)d | %(message)s",
+    # * Create formatter
+    formatter = logging.Formatter(
+        fmt="%(asctime)s | %(levelname)-2s | %(name)s | %(message)s",
         datefmt="%Y-%m-%d %H:%M:%S",
-    )
-
-    simple_formatter = logging.Formatter(
-        fmt="%(asctime)s | %(levelname)-8s | %(message)s", datefmt="%H:%M:%S"
     )
 
     # * Console handler
     if log_to_console:
         console_handler = logging.StreamHandler(sys.stdout)
         console_handler.setLevel(level)
-        console_handler.setFormatter(simple_formatter)
+        console_handler.setFormatter(formatter)
         logger.addHandler(console_handler)
 
     # * File handler
@@ -63,7 +59,7 @@ def setup_logger(
 
         file_handler = logging.FileHandler(log_file, encoding="utf-8")
         file_handler.setLevel(level)
-        file_handler.setFormatter(detailed_formatter)
+        file_handler.setFormatter(formatter)
         logger.addHandler(file_handler)
 
     return logger
@@ -112,7 +108,7 @@ def get_data_logger() -> logging.Logger:
 def log_function_entry(logger: logging.Logger, func_name: str, **kwargs):
     """Log function entry with parameters."""
     params = ", ".join(f"{k}={v}" for k, v in kwargs.items())
-    logger.debug(f"🔄 Entering {func_name}({params})")
+    logger.debug(f"Entering {func_name}({params})")
 
 
 def log_function_exit(
@@ -120,37 +116,37 @@ def log_function_exit(
 ):
     """Log function exit with optional result."""
     if result:
-        logger.debug(f"✅ Exiting {func_name} -> {result}")
+        logger.debug(f"Exiting {func_name} -> {result}")
     else:
-        logger.debug(f"✅ Exiting {func_name}")
+        logger.debug(f"Exiting {func_name}")
 
 
 def log_error(logger: logging.Logger, error: Exception, context: str = ""):
     """Log error with context information."""
     if context:
-        logger.error(f"❌ {context}: {str(error)}", exc_info=True)
+        logger.error(f"{context}: {str(error)}", exc_info=True)
     else:
-        logger.error(f"❌ Error: {str(error)}", exc_info=True)
+        logger.error(f"Error: {str(error)}", exc_info=True)
 
 
 def log_success(logger: logging.Logger, message: str):
     """Log success message."""
-    logger.info(f"✅ {message}")
+    logger.info(message)
 
 
 def log_warning(logger: logging.Logger, message: str):
     """Log warning message."""
-    logger.warning(f"⚠️ {message}")
+    logger.warning(message)
 
 
 def log_debug(logger: logging.Logger, message: str):
     """Log debug message."""
-    logger.debug(f"🔍 {message}")
+    logger.debug(message)
 
 
 def log_info(logger: logging.Logger, message: str):
     """Log info message."""
-    logger.info(f"ℹ️ {message}")
+    logger.info(message)
 
 
 # * Configure root logger to suppress noisy third-party logs

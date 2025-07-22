@@ -11,8 +11,9 @@ from aiogram.utils.keyboard import InlineKeyboardBuilder
 from dotenv import load_dotenv
 import os
 
-from langgraph_agent import create_analytics_agent
-from logger_config import (
+from ..langgraph_agent import create_analytics_agent
+from ..evaluation import evaluate_agent_response
+from ..logger_config import (
     get_telegram_logger,
     log_success,
     log_error,
@@ -95,7 +96,7 @@ async def command_help_handler(message: Message) -> None:
     """
     user_display = message.from_user.full_name if message.from_user else "Unknown User"
     log_info(logger, f"User {user_display} requested help")
-    
+
     help_text = """
 📚 <b>How to Use Analytics Bot</b>
 
@@ -151,7 +152,7 @@ async def command_help_handler(message: Message) -> None:
 • Specify conversion windows for conversion rate analysis
 • Specify number of top regions (default is 5)
     """
-    
+
     await message.answer(help_text, reply_markup=create_help_keyboard())
 
 
@@ -191,9 +192,13 @@ async def command_status_handler(message: Message) -> None:
 @dp.callback_query(lambda c: c.data == "sample_queries")
 async def process_sample_queries(callback_query):
     """Handle sample queries button."""
-    user_display = callback_query.from_user.full_name if callback_query.from_user else "Unknown User"
+    user_display = (
+        callback_query.from_user.full_name
+        if callback_query.from_user
+        else "Unknown User"
+    )
     log_info(logger, f"User {user_display} requested sample queries")
-    
+
     sample_text = """
 📊 <b>Sample Analytics Queries</b>
 
@@ -259,7 +264,7 @@ async def process_sample_queries(callback_query):
 
 Just copy and paste any of these, or ask in your own words!
     """
-    
+
     await callback_query.message.answer(sample_text)
     await callback_query.answer()
 
@@ -267,9 +272,13 @@ Just copy and paste any of these, or ask in your own words!
 @dp.callback_query(lambda c: c.data == "available_metrics")
 async def process_available_metrics(callback_query):
     """Handle available metrics button."""
-    user_display = callback_query.from_user.full_name if callback_query.from_user else "Unknown User"
+    user_display = (
+        callback_query.from_user.full_name
+        if callback_query.from_user
+        else "Unknown User"
+    )
     log_info(logger, f"User {user_display} requested available metrics")
-    
+
     metrics_text = """
 📋 <b>Available Analytics Metrics</b>
 
@@ -333,7 +342,7 @@ async def process_available_metrics(callback_query):
   - Shows the gap between site traffic and actual sales
   - Helps measure conversion funnel effectiveness
     """
-    
+
     await callback_query.message.answer(metrics_text)
     await callback_query.answer()
 
@@ -372,14 +381,26 @@ async def handle_analytics_query(message: Message) -> None:
         # * Extract response content
         agent_response = response["messages"][-1].content
 
-        # * Format response for Telegram
+        # * Evaluate the response against ground truth
+        evaluation_result = evaluate_agent_response(user_query, agent_response)
+
+        # * Get evaluation score
+        score = evaluation_result.get("score", 0)
+
+        # * Format response for Telegram with evaluation
         formatted_response = f"""
 🤖 <b>Analytics Result</b>
 
-{agent_response}"""
+{agent_response}
+
+<b>Evaluation</b>
+Score: {score}"""
 
         await message.answer(formatted_response)
-        log_success(logger, f"Successfully processed query from {user_name}")
+        log_success(
+            logger,
+            f"Successfully processed and evaluated query from {user_name} (Score: {score}/5)",
+        )
 
     except Exception as e:
         log_error(logger, e, f"Error processing query from {user_name}")
